@@ -1,28 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const headerOffset = 70;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Scroll animations
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  sections.forEach(section => observer.observe(section));
-});
+:root{--bg:#f9f8f6;--surface:#fff;--text:#2a2a2a;--text-muted:#6b6b6b;--accent:#8c9a7b;--accent-hover:#7a8869;--border:#e0deda;--radius:10px;--shadow:0 4px 16px rgba(0,0,0,0.06);--transition:0.25s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+a{color:inherit;text-decoration:none}
+.header{position:sticky;top:0;background:rgba(249,248,246,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:100;padding:1rem 0}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.nav{display:flex;gap:1.2rem}
+.nav a{font-weight:500;color:var(--text-muted);transition:var(--transition)}
+.nav a:hover{color:var(--accent)}
+.section{padding:clamp(3rem,8vw,5rem) 0;opacity:0;transform:translateY(20px);transition:all 0.6s ease}
+.section.visible{opacity:1;transform:translateY(0)}
+.section-title{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:1.5rem;text-align:center;position:relative}
+.section-title::after{content:'';display:block;width:50px;height:3px;background:var(--accent);margin:0.5rem auto 0;border-radius:2px}
+.hero{text-align:center;padding-top:clamp(5rem,10vw,8rem)}
+.hero-title{font-size:clamp(2rem,6vw,3rem);font-weight:300;line-height:1.2;margin-bottom:1rem}
+.hero-sub{color:var(--text-muted);font-size:1.1rem;max-width:600px;margin:0 auto 2rem}
+.btn{display:inline-block;padding:0.8rem 1.8rem;border-radius:var(--radius);font-weight:500;transition:var(--transition);cursor:pointer;border:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid var(--accent);color:var(--accent);margin:0.5rem}
+.btn-outline:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.cards-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+.card{background:var(--surface);padding:1.5rem;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h3{margin-bottom:0.5rem;font-weight:600}
+.card p{color:var(--text-muted);font-size:0.95rem}
+.schedule-table{display:grid;gap:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);max-width:600px;margin:0 auto}
+.schedule-row{display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.8rem;background:var(--surface);border-bottom:1px solid var(--border);font-size:0.9rem}
+.schedule-row:last-child{border-bottom:none}
+.header-row{background:var(--accent);color:#fff;font-weight:600}
+.contact{text-align:center}
+.section-text{color:var(--text-muted);margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto}
+.contact-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem}
+.footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:0.9rem}
+@media(min-width:768px){.cards-grid{grid-template-columns:repeat(3,1fr)}.contact-buttons{gap:1rem}}
+@media(max-width:768px){.header-inner{flex-direction:column;gap:1rem}.nav{gap:1rem}.btn{width:100%}}
