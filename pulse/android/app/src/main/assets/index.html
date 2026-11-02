@@ -4,262 +4,380 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0e13">
-  <meta name="description" content="Маленькие тренировки в твоём темпе. Настроение, усталость и прогресс — приватно и без давления.">
+  <meta name="description" content="ПУЛЬС — мини-тренировки с выбором уровня, зон мышц, визуальной схемой тела и бережной мотивацией.">
   <style>
 :root{--bg:#0b0e13;--card:#171c24;--card2:#1c232b;--line:#2b333b;--text:#f4f6f3;--muted:#9ba5ab;--lime:#c4f573;--lime2:#a9df5a;--violet:#c4b6ff;--orange:#ffbc88;--shadow:0 24px 80px #0003;--radius:24px;color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100vh;background:radial-gradient(circle at 85% -5%,#293b2e48,transparent 35%),var(--bg);color:var(--text);font-size:15px;letter-spacing:-.15px}
 button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:default}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
-.app-shell{max-width:570px;min-height:100vh;margin:0 auto;padding:0 19px 115px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:31px 2px 23px}.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-size:24px;line-height:1;font-weight:920;text-decoration:none;letter-spacing:-1.4px}.brand-dot{color:var(--lime)}.brand-mark{width:36px;height:36px;border-radius:12px;background:var(--lime);display:grid;place-items:center}.brand-mark svg{width:29px;fill:none;stroke:#151a13;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.today-label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase;color:var(--lime)}h1,h2,h3,p{margin:0}h1{font-size:clamp(34px,9vw,49px);line-height:1.02;font-weight:850;letter-spacing:-2.1px}h2{font-size:23px;line-height:1.16;letter-spacing:-.8px}h3{font-size:16px;letter-spacing:-.3px}.muted{color:var(--muted)}.hero{position:relative;overflow:hidden;border-radius:29px;padding:28px 24px 27px;background:linear-gradient(134deg,#222f30 0%,#1d282b 51%,#142022 100%);border:1px solid #394a48;box-shadow:var(--shadow)}.hero::before{content:"";position:absolute;width:240px;height:240px;right:-112px;top:-90px;border-radius:100%;border:45px solid #d0ff8325;box-shadow:0 0 0 35px #d0ff8311,0 0 0 80px #d0ff8307;pointer-events:none}.hero .eyebrow{margin-bottom:16px;position:relative}.hero h1{max-width:350px;position:relative}.hero h1 em{color:var(--lime);font-style:normal}.hero p{position:relative;margin-top:16px;max-width:350px;line-height:1.55;color:#bdcdc5;font-size:14px}.hero-pills{position:relative;display:flex;gap:7px;flex-wrap:wrap;margin-top:25px}.pill{background:#f4fff015;border:1px solid #eaffd92b;padding:9px 11px;border-radius:100px;font-size:12px;color:#e3eadd;font-weight:730}.pill strong{color:var(--lime)}.section{margin-top:29px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.section-heading small{color:var(--muted);font-size:12px;line-height:1.45}.section-heading h2{margin-bottom:4px}.card{background:var(--card);border:1px solid #303641;border-radius:var(--radius);padding:20px;box-shadow:0 8px 34px #0002}.checkin-label{color:var(--muted);font-size:13px;margin-bottom:14px}.mood-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.mood{border:1px solid transparent;background:#242b33;min-height:67px;border-radius:16px;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:transform .2s,border-color .2s,background .2s}.mood:hover{transform:translateY(-2px)}.mood.selected{background:#32432f;border-color:var(--lime);color:var(--lime)}.mood .face{font-size:25px;line-height:1.1}.mood small{font-size:10px;font-weight:700}.inner-divider{height:1px;background:var(--line);margin:20px 0}.range-head{display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:700}.range-tag{padding:6px 10px;background:#2b3038;border-radius:100px;font-size:11px;color:#e4edf0}.range-tag.warning{background:#46332e;color:#ffcead}input[type=range]{display:block;margin:17px 0 5px;width:100%;height:6px;border-radius:99px;appearance:none;-webkit-appearance:none;background:linear-gradient(90deg,var(--lime) var(--range,35%),#3b4149 var(--range,35%));cursor:pointer}input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:24px;height:24px;background:var(--lime);border:4px solid #172118;border-radius:50%;box-shadow:0 0 0 2px var(--lime)}input[type=range]::-moz-range-thumb{width:16px;height:16px;background:var(--lime);border:4px solid #172118;border-radius:50%;box-shadow:0 0 0 2px var(--lime)}.range-ends{display:flex;justify-content:space-between;font-size:11px;color:#78858b}.recommendation{display:flex;gap:11px;align-items:flex-start;margin-top:15px;border-radius:17px;background:#232a28;border:1px solid #374639;padding:14px;color:#becdc0;font-size:13px;line-height:1.5}.recommendation .spark{font-size:19px}.recommendation strong{color:#e2f4dc}.recommendation.warn{background:#302724;border-color:#51403a;color:#e7c4b6}.recommendation.warn strong{color:#ffe0d1}.row-between{display:flex;align-items:center;justify-content:space-between;gap:10px}.text-button{background:none;color:var(--lime);border:0;font-size:12px;font-weight:750;padding:7px 0}.plan-info{font-size:13px;color:var(--muted);margin-top:4px}.progress-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:0 2px 11px}.progress-count{font-size:12px;color:var(--muted);font-weight:730}.bar{height:7px;border-radius:100px;background:#2a3039;overflow:hidden}.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--lime2),var(--lime));border-radius:100px;transition:width .35s}.exercises{display:grid;gap:10px;margin-top:17px}.exercise{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:13px;padding:15px 14px 15px 13px;border:1px solid #313943;background:#1b212a;border-radius:19px;min-height:87px}.exercise.done{background:#1c2922;border-color:#3f5943}.exercise-icon{border-radius:16px;width:54px;height:54px;display:grid;place-items:center;font-size:25px;background:#313f33}.exercise-icon.purple{background:#343146}.exercise-icon.orange{background:#47352c}.exercise-text{min-width:0}.exercise-name{font-size:15px;font-weight:790}.exercise-desc{font-size:11.5px;line-height:1.4;color:var(--muted);margin-top:5px}.exercise-amount{font-size:12px;color:var(--lime);font-weight:760;margin-top:5px}.done-button{border:1px solid #607a4b;background:var(--lime);color:#1a2513;border-radius:13px;padding:10px 11px;min-width:63px;font-size:12px;font-weight:820}.done-button.done-btn{background:#2d4430;border-color:#3c7043;color:var(--lime)}.timer-panel{margin-top:11px;border:1px solid #47524b;border-radius:17px;padding:15px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#202b26}.timer-panel strong{font-size:23px;font-variant-numeric:tabular-nums;letter-spacing:1px}.timer-panel span{font-size:12px;color:var(--muted)}.btn-timer{border:0;border-radius:12px;background:var(--lime);color:#172315;font-weight:790;padding:11px 16px}.btn-soft{border:1px solid #37414a;background:#252e35;color:var(--text);border-radius:13px;font-size:12px;padding:11px 14px;font-weight:750}.plan-footer{padding-top:18px;display:flex;gap:12px;align-items:center;justify-content:space-between}.plan-footer small{color:var(--muted);line-height:1.4;max-width:230px}.rest-toggle{border:1px dashed #596753;background:#253029;color:#daf1cc;border-radius:16px;padding:13px 15px;width:100%;font-size:13px;font-weight:750;margin-top:14px}.finished{text-align:center;padding:31px 16px}.finished-icon{display:grid;place-items:center;background:#2d412e;border-radius:23px;width:72px;height:72px;margin:0 auto 20px;color:var(--lime);font-size:35px}.finished h2{font-size:27px;margin-bottom:10px}.finished p{line-height:1.55;font-size:14px;color:var(--muted)}.small-cta{margin-top:22px;border:0;border-radius:14px;background:var(--lime);color:#192016;padding:13px 16px;font-weight:850}.tipline{margin:27px 0 12px;display:flex;align-items:center;gap:10px;color:#889595;font-size:12px;line-height:1.4}.tipline b{font-size:17px;color:var(--lime)}.insight-card{background:linear-gradient(120deg,#2c2938,#1b2229);border:1px solid #413e55;border-radius:22px;padding:23px;margin-top:20px}.insight-card h2{font-size:22px;margin-top:8px}.insight-card p{color:#b8b8c9;font-size:13px;line-height:1.55;margin-top:12px}.page-head{padding:17px 2px 22px}.page-head p{color:var(--muted);font-size:13px;margin-top:10px;line-height:1.5}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat-card{border:1px solid #343a43;background:var(--card);border-radius:19px;padding:16px 11px}.stat-card strong{display:block;font-size:clamp(24px,6vw,31px);color:var(--lime);letter-spacing:-1.3px}.stat-card span{font-size:11px;color:var(--muted);line-height:1.4;display:block;margin-top:7px}.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end;margin-top:19px}.week-day{display:grid;gap:7px;text-align:center;justify-items:center;color:var(--muted);font-size:11px}.week-column{height:90px;width:100%;display:flex;align-items:end;justify-content:center}.week-column span{display:block;width:100%;max-width:35px;height:var(--height,10%);min-height:6px;background:#384047;border-radius:9px 9px 4px 4px}.week-column span.active{background:linear-gradient(180deg,var(--lime),#7ba746)}.week-day.today{color:var(--lime)}.history{display:grid;gap:9px;margin-top:15px}.history-item{background:#1d242b;border:1px solid #303841;border-radius:17px;padding:15px;display:flex;justify-content:space-between;gap:10px;align-items:center}.history-item strong{font-size:13px;display:block;margin-bottom:5px}.history-item small{font-size:11px;color:var(--muted)}.history-item .history-tag{font-size:11px;background:#293a2c;color:var(--lime);border-radius:10px;padding:8px 10px;white-space:nowrap}.empty{text-align:center;padding:28px 13px;color:var(--muted);font-size:13px;line-height:1.6}.setting-row{margin-top:18px}.setting-row:first-child{margin-top:0}.setting-row-head{display:flex;justify-content:space-between;gap:12px}.setting-row-head strong{font-size:14px}.setting-row-head span{color:var(--lime);font-weight:800}.helper{font-size:12px;color:var(--muted);line-height:1.6;margin-top:12px}.action-btn{border-radius:14px;padding:13px 16px;font-weight:780;background:#29333a;color:var(--text);border:1px solid #3d4852;margin-top:12px;width:100%;text-align:left}.action-btn.danger{color:#ffc5af;background:#342729;border-color:#62413f}.credits{color:#65767b;font-size:11px;text-align:center;margin-top:29px;line-height:1.7}.toast{position:fixed;bottom:103px;left:50%;transform:translate(-50%,15px);background:#deffa9;color:#202b16;border-radius:15px;padding:12px 17px;font-size:13px;font-weight:790;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:min(90vw,460px);z-index:20;box-shadow:0 14px 40px #0008}.toast.show{opacity:1;transform:translate(-50%,0)}.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:15;display:flex;justify-content:center;gap:0;background:#11151bf2;backdrop-filter:blur(18px);border-top:1px solid #2a3238;padding:9px max(14px,env(safe-area-inset-left)) max(10px,env(safe-area-inset-bottom));box-shadow:0 -9px 40px #0004}.nav-item{min-width:90px;max-width:180px;flex:1;color:#84929b;background:none;border:0;display:grid;justify-items:center;gap:4px;font-size:10px;font-weight:720;padding:4px 0}.nav-item.active{color:var(--lime)}.nav-icon{height:25px;display:grid;place-items:center}.nav-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}.overlay[hidden]{display:none}.overlay{position:fixed;inset:0;background:#06080ac9;z-index:60;display:grid;place-items:center;padding:22px;backdrop-filter:blur(12px)}.modal{width:min(100%,400px);padding:31px 23px;background:#1e2828;border:1px solid #6e8861;border-radius:28px;text-align:center;box-shadow:0 30px 90px #000a}.modal .celebrate{font-size:52px;display:block;margin-bottom:15px}.modal h2{font-size:27px}.modal p{color:#bfccc2;font-size:14px;line-height:1.6;margin-top:12px}.modal button{background:var(--lime);color:#162017;border:0;border-radius:14px;padding:14px 22px;font-weight:850;margin-top:23px;width:100%}textarea{background:#222a32;color:var(--text);border:1px solid #37414a;border-radius:13px;resize:vertical;width:100%;min-height:70px;padding:12px;margin-top:12px;line-height:1.5}textarea::placeholder{color:#71818a}
-@media(min-width:700px){.app-shell{border-left:1px solid #263034;border-right:1px solid #263034}.bottom-nav{width:570px;margin:0 auto;left:0;right:0;border-left:1px solid #263034;border-right:1px solid #263034}}@media(max-width:375px){.app-shell{padding-left:12px;padding-right:12px}.hero{padding-left:20px;padding-right:20px}.card{padding:15px}.exercise{grid-template-columns:43px minmax(0,1fr) auto;gap:9px;padding:12px 9px}.exercise-icon{width:43px;height:43px;font-size:22px}.done-button{min-width:56px;padding:9px 7px}.exercise-name{font-size:13px}.mood small{font-size:9px}.mood{min-height:62px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-
+.app-shell{max-width:570px;min-height:100vh;margin:0 auto;padding:0 19px 115px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:31px 2px 23px}.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-size:24px;line-height:1;font-weight:920;text-decoration:none;letter-spacing:-1.4px}.brand-dot{color:var(--lime)}.brand-mark{width:36px;height:36px;border-radius:12px;background:var(--lime);display:grid;place-items:center}.brand-mark svg{width:29px;fill:none;stroke:#151a13;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.today-label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px}.eyebrow{font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase;color:var(--lime)}h1,h2,h3,p{margin:0}h1{font-size:clamp(34px,9vw,49px);line-height:1.02;font-weight:850;letter-spacing:-2.1px}h2{font-size:23px;line-height:1.16;letter-spacing:-.8px}h3{font-size:16px;letter-spacing:-.3px}.muted{color:var(--muted)}
+.hero{position:relative;overflow:hidden;border-radius:29px;padding:28px 24px 27px;background:linear-gradient(134deg,#222f30 0%,#1d282b 51%,#142022 100%);border:1px solid #394a48;box-shadow:var(--shadow)}.hero::before{content:"";position:absolute;width:240px;height:240px;right:-112px;top:-90px;border-radius:100%;border:45px solid #d0ff8325;box-shadow:0 0 0 35px #d0ff8311,0 0 0 80px #d0ff8307;pointer-events:none}.hero .eyebrow{margin-bottom:16px;position:relative}.hero h1{max-width:380px;position:relative}.hero h1 em{color:var(--lime);font-style:normal}.hero p{position:relative;margin-top:16px;max-width:380px;line-height:1.55;color:#bdcdc5;font-size:14px}.hero-pills{position:relative;display:flex;gap:7px;flex-wrap:wrap;margin-top:25px}.pill{background:#f4fff015;border:1px solid #eaffd92b;padding:9px 11px;border-radius:100px;font-size:12px;color:#e3eadd;font-weight:730}.pill strong{color:var(--lime)}
+.section{margin-top:29px}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:15px}.section-heading small{color:var(--muted);font-size:12px;line-height:1.45}.section-heading h2{margin-bottom:4px}.card{background:var(--card);border:1px solid #303641;border-radius:var(--radius);padding:20px;box-shadow:0 8px 34px #0002}
+.checkin-label{color:var(--muted);font-size:13px;margin-bottom:14px}.mood-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.mood{border:1px solid transparent;background:#242b33;min-height:67px;border-radius:16px;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:transform .2s,border-color .2s,background .2s}.mood:hover{transform:translateY(-2px)}.mood.selected{background:#32432f;border-color:var(--lime);color:var(--lime)}.mood .face{font-size:25px;line-height:1.1}.mood small{font-size:10px;font-weight:700}.inner-divider{height:1px;background:var(--line);margin:20px 0}.range-head{display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:700}.range-tag{padding:6px 10px;background:#2b3038;border-radius:100px;font-size:11px;color:#e4edf0}.range-tag.warning{background:#46332e;color:#ffcead}
+input[type=range]{display:block;margin:17px 0 5px;width:100%;height:6px;border-radius:99px;appearance:none;-webkit-appearance:none;background:linear-gradient(90deg,var(--lime) var(--range,35%),#3b4149 var(--range,35%));cursor:pointer}input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:24px;height:24px;background:var(--lime);border:4px solid #172118;border-radius:50%;box-shadow:0 0 0 2px var(--lime)}input[type=range]::-moz-range-thumb{width:16px;height:16px;background:var(--lime);border:4px solid #172118;border-radius:50%;box-shadow:0 0 0 2px var(--lime)}.range-ends{display:flex;justify-content:space-between;font-size:11px;color:#78858b}
+.recommendation{display:flex;gap:11px;align-items:flex-start;margin-top:15px;border-radius:17px;background:#232a28;border:1px solid #374639;padding:14px;color:#becdc0;font-size:13px;line-height:1.5}.recommendation .spark{font-size:19px}.recommendation strong{color:#e2f4dc}.recommendation.warn{background:#302724;border-color:#51403a;color:#e7c4b6}.recommendation.warn strong{color:#ffe0d1}
+.helper{color:var(--muted);font-size:13px;line-height:1.5}.helper b{color:#e7efea}textarea{width:100%;min-height:86px;resize:vertical;border-radius:16px;padding:14px;background:#131820;border:1px solid #2f3742;color:var(--text);line-height:1.45}
+.setup-grid{display:grid;gap:18px}.setup-block{background:#1a2129;border:1px solid #2f3742;border-radius:20px;padding:16px}.setup-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px}.setup-head strong{font-size:15px}.chip-row{display:flex;flex-wrap:wrap;gap:8px}.choice-chip,.focus-chip{border:1px solid #36414b;background:#20272f;color:#dbe3e7;border-radius:15px;padding:11px 13px;min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;transition:transform .18s,border-color .18s,background .18s}.choice-chip:hover,.focus-chip:hover{transform:translateY(-1px)}.choice-chip.active,.focus-chip.active{background:#31402f;border-color:var(--lime);color:var(--lime)}.choice-chip small{display:block;font-size:11px;color:inherit;opacity:.85}.choice-chip span{display:block;font-size:13px;font-weight:780}.choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.focus-chip{justify-content:flex-start;align-items:flex-start;flex-direction:column;gap:4px;text-align:left;min-height:68px}.focus-chip strong{font-size:13px}.focus-chip small{font-size:11px;color:inherit;opacity:.86;line-height:1.35}
+.body-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:14px;align-items:center;background:#141a22;border:1px solid #2b3640;border-radius:22px;padding:16px}.body-copy h3{font-size:19px;margin-bottom:7px}.body-copy p{font-size:13px;color:var(--muted);line-height:1.5}.body-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.body-tags span{font-size:11px;padding:7px 10px;border-radius:999px;background:#232d35;border:1px solid #31414a;color:#dae3e6}.body-note{margin-top:10px;font-size:11px;color:#78858b;line-height:1.35}.body-wrap{display:grid;place-items:center}.muscle-svg{width:100%;max-width:165px;height:auto}.body-base{fill:#212b34}.body-outline{fill:none;stroke:#3a4652;stroke-width:2}.muscle{fill:#313c47;transition:fill .2s}.muscle.active{fill:var(--lime)}.muscle.accent{fill:#9ad847}.muscle.dim{fill:#404b56}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.legend-row span{font-size:11px;color:#cfd7da;padding:6px 9px;border-radius:999px;background:#232b33;border:1px solid #33404b}
+.progress-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:0 2px 11px}.progress-count{font-size:12px;color:var(--muted);font-weight:730}.bar{height:7px;border-radius:100px;background:#2a3039;overflow:hidden}.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--lime2),var(--lime));border-radius:100px;transition:width .35s}
+.exercises{display:grid;gap:10px;margin-top:17px}.exercise{display:grid;grid-template-columns:54px minmax(0,1fr) auto;align-items:center;gap:13px;padding:15px 14px 15px 13px;border:1px solid #313943;background:#1b212a;border-radius:19px;min-height:87px}.exercise.done{background:#1c2922;border-color:#3f5943}.exercise-icon{border-radius:16px;width:54px;height:54px;display:grid;place-items:center;font-size:25px;background:#313f33}.exercise-icon.purple{background:#343146}.exercise-icon.orange{background:#47352c}.exercise-text{min-width:0}.exercise-name{font-size:15px;font-weight:790}.exercise-desc{font-size:11.5px;line-height:1.4;color:var(--muted);margin-top:5px}.exercise-amount{font-size:12px;color:var(--lime);font-weight:760;margin-top:5px}.exercise-muscle{display:inline-flex;gap:6px;flex-wrap:wrap;margin-top:6px}.exercise-muscle span{font-size:10px;padding:4px 7px;border-radius:999px;background:#252f38;color:#d0d9dd;border:1px solid #33414b}.done-button{border:1px solid #607a4b;background:var(--lime);color:#1a2513;border-radius:13px;padding:10px 11px;min-width:72px;font-size:12px;font-weight:820}.done-button.done-btn{background:#2d4430;border-color:#3c7043;color:var(--lime)}
+.timer-panel{margin-top:11px;border:1px solid #47524b;border-radius:17px;padding:15px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#202b26}.timer-panel strong{font-size:23px;font-variant-numeric:tabular-nums;letter-spacing:1px}.timer-panel span{font-size:12px;color:var(--muted)}.btn-timer{border:0;border-radius:12px;background:var(--lime);color:#172315;font-weight:790;padding:11px 16px}.btn-soft{border:1px solid #37414a;background:#252e35;color:var(--text);border-radius:13px;font-size:12px;padding:11px 14px;font-weight:750}
+.plan-footer{padding-top:18px;display:flex;gap:12px;align-items:center;justify-content:space-between}.plan-footer small{color:var(--muted);line-height:1.4;max-width:230px}.rest-toggle{border:1px dashed #596753;background:#253029;color:#daf1cc;border-radius:16px;padding:13px 15px;width:100%;font-size:13px;font-weight:750;margin-top:14px}.finished{text-align:center;padding:31px 16px}.finished-icon{display:grid;place-items:center;background:#2d412e;border-radius:23px;width:72px;height:72px;margin:0 auto 20px;color:var(--lime);font-size:35px}.finished h2{font-size:27px;margin-bottom:10px}.finished p{line-height:1.55;font-size:14px;color:var(--muted)}.small-cta{margin-top:22px;border:0;border-radius:14px;background:var(--lime);color:#192016;padding:13px 16px;font-weight:850}
+.guide-list{display:grid;gap:10px}.guide-card{border:1px solid #313944;background:#1a2129;border-radius:19px;padding:15px}.guide-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.guide-top strong{font-size:15px}.guide-badge{font-size:11px;padding:6px 9px;border-radius:999px;background:#253038;border:1px solid #35444d;color:#dae2e6}.guide-card p{font-size:13px;line-height:1.5;color:#cdd5d9}.guide-card p + p{margin-top:8px}.guide-card b{color:#eef5ef}
+.tipline{margin:27px 0 12px;display:flex;align-items:center;gap:10px;color:#889595;font-size:12px;line-height:1.4}.tipline b{font-size:17px;color:var(--lime)}.insight-card{background:linear-gradient(120deg,#2c2938,#1b2229);border:1px solid #413e55;border-radius:22px;padding:23px;margin-top:20px}.insight-card h2{font-size:22px;margin-top:8px}.insight-card p{color:#b8b8c9;font-size:13px;line-height:1.55;margin-top:12px}
+.page-head{padding:17px 2px 22px}.page-head p{color:var(--muted);font-size:13px;margin-top:10px;line-height:1.5}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat-card{border:1px solid #343a43;background:var(--card);border-radius:19px;padding:16px 11px}.stat-card strong{display:block;font-size:clamp(24px,6vw,31px);color:var(--lime);letter-spacing:-1.3px}.stat-card span{font-size:11px;color:var(--muted);line-height:1.4;display:block;margin-top:7px}.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-items:end;margin-top:19px}.week-day{display:grid;gap:7px;text-align:center;justify-items:center;color:var(--muted);font-size:11px}.week-column{height:90px;width:100%;display:flex;align-items:end;justify-content:center}.week-column span{display:block;width:100%;max-width:35px;height:var(--height,10%);min-height:6px;background:#384047;border-radius:9px 9px 4px 4px}.week-column span.active{background:linear-gradient(180deg,var(--lime),#7ba746)}.week-day.today{color:var(--lime)}.history{display:grid;gap:9px;margin-top:15px}.history-item{background:#171d25;border:1px solid #2e3640;border-radius:18px;padding:15px 16px;display:flex;gap:12px;justify-content:space-between;align-items:center}.history-item strong{display:block;font-size:14px}.history-item small{color:var(--muted);display:block;font-size:12px;line-height:1.45;margin-top:4px}.history-tag{font-size:11px;padding:8px 10px;border-radius:100px;background:#253028;color:#d7eccc;border:1px solid #425347;white-space:nowrap}.empty{font-size:14px;line-height:1.6;color:var(--muted)}
+.action-btn{width:100%;margin-top:11px;border:1px solid #33404b;background:#202831;color:var(--text);border-radius:14px;padding:13px 14px;font-weight:760;text-align:left}.action-btn.danger{border-color:#4c3939;background:#2b2121;color:#ffd1d1}.credits{margin:28px 3px 0;color:#78858b;font-size:12px;line-height:1.55;text-align:center}
+.bottom-nav{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);width:min(530px,calc(100vw - 22px));background:#10151ddb;border:1px solid #26313d;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 24px 70px #0006;border-radius:24px;padding:9px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px;z-index:30}.nav-btn{border:0;background:transparent;color:#90a0a7;border-radius:18px;padding:10px 10px 9px;display:grid;justify-items:center;gap:5px;font-size:11px;font-weight:720}.nav-btn .icon{font-size:18px}.nav-btn.active{background:#243028;color:var(--lime)}
+.overlay{position:fixed;inset:0;background:#05070bcf;display:grid;place-items:center;padding:22px;z-index:60}.modal{max-width:410px;width:100%;background:#151b23;border:1px solid #33404b;border-radius:28px;padding:28px 24px 24px;box-shadow:var(--shadow);text-align:center}.modal .celebrate{font-size:45px;display:block;margin-bottom:14px}.modal p{margin-top:11px;color:#cbd3d7;line-height:1.6;font-size:14px}.modal button{margin-top:20px;border:0;border-radius:14px;padding:13px 16px;background:var(--lime);color:#172315;font-weight:850;min-width:130px}
+.toast{position:fixed;left:50%;bottom:103px;transform:translateX(-50%) translateY(18px);background:#101821;border:1px solid #30404a;color:#eef4f2;padding:12px 15px;border-radius:14px;box-shadow:0 14px 44px #0005;opacity:0;pointer-events:none;transition:.22s;max-width:min(90vw,420px);font-size:13px;z-index:70}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:520px){.body-card{grid-template-columns:1fr}.body-wrap{order:-1}.focus-grid{grid-template-columns:1fr 1fr}.exercise{grid-template-columns:48px minmax(0,1fr)}.done-button{grid-column:1/-1;width:100%}.stats-grid{grid-template-columns:1fr 1fr 1fr}.choice-grid{grid-template-columns:1fr}.section-heading{align-items:flex-start}}
+  [hidden]{display:none!important}
   </style>
-  <title>ПУЛЬС — маленький шаг каждый день</title>
 </head>
 <body>
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#today" data-view="today" aria-label="ПУЛЬС, на главную"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M5 21h8l5-10 5 19 5-9h7"/></svg></span><span>ПУЛЬС<span class="brand-dot">.</span></span></a>
-      <div class="today-label" id="headerDate"></div>
+      <a href="#today" class="brand" aria-label="ПУЛЬС — на главную">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M2 12h5l2.7-4.6L14.2 18 17 12h5"/></svg>
+        </span>
+        ПУЛЬС<span class="brand-dot">.</span>
+      </a>
+      <div class="today-label">Сегодня · <span id="headerDate"></span></div>
     </header>
-    <main id="mainContent" aria-live="polite"></main>
-    <nav class="bottom-nav" aria-label="Разделы">
-      <button class="nav-item active" data-view="today" aria-label="Сегодня"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span>Сегодня</span></button>
-      <button class="nav-item" data-view="progress" aria-label="Прогресс"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="4" y="13" width="4" height="7" rx="1"/><rect x="10" y="9" width="4" height="11" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg></span><span>Прогресс</span></button>
-      <button class="nav-item" data-view="settings" aria-label="Настройки"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.65 5.65l1.42 1.42m9.86 9.86 1.42 1.42m0-12.7-1.42 1.42M7.07 16.93l-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg></span><span>Параметры</span></button>
-    </nav>
+
+    <main id="app"></main>
   </div>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <div id="overlay" class="overlay" hidden></div>
-  <script>
-/* ПУЛЬС 1.0 — полностью локальное приложение, без аналитики и сетевых запросов. */
-(() => {
-  'use strict';
-  const KEY = 'pulse_mini_v1';
-  const main = document.getElementById('mainContent');
-  const toastEl = document.getElementById('toast');
-  const overlay = document.getElementById('overlay');
-  const MOODS = [
-    {emoji:'😞',name:'Тяжело'},
-    {emoji:'😕',name:'Грустно'},
-    {emoji:'😐',name:'Нормально'},
+
+  <nav class="bottom-nav" aria-label="Основная навигация">
+    <button class="nav-btn" data-view="today" aria-current="page"><span class="icon">🏠</span><span>Сегодня</span></button>
+    <button class="nav-btn" data-view="progress"><span class="icon">📈</span><span>Прогресс</span></button>
+    <button class="nav-btn" data-view="settings"><span class="icon">⚙️</span><span>Настройки</span></button>
+  </nav>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(()=>{
+  const KEY='pulse-mini-workout';
+  const main=document.getElementById('app');
+  const overlay=document.getElementById('overlay');
+  const toastEl=document.getElementById('toast');
+  const MOODS=[
+    {emoji:'😣',name:'Тяжело'},
+    {emoji:'😕',name:'Не очень'},
+    {emoji:'😐',name:'Норм'},
     {emoji:'🙂',name:'Хорошо'},
     {emoji:'😄',name:'Отлично'}
   ];
-  const FATIGUE = ['Нет усталости','Небольшая','Средняя','Сильная','Очень сильная'];
-  let view = ['today','progress','settings'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'today';
-  let timer = null;
-  let toastTimeout = 0;
-  let state = loadState();
+  const FATIGUE=['Полон сил','Лёгкая','Средняя','Сильная','Предел'];
+  const LEVELS={
+    beginner:{name:'Новичок',short:'Низкая нагрузка',factor:1},
+    regular:{name:'База',short:'Умеренно',factor:1.35},
+    strong:{name:'Заряжен',short:'Побольше',factor:1.75}
+  };
+  const FOCUSES={
+    full:{name:'Всё тело',sub:'разминка + базовый тонус',summary:'Мягко включаем всё тело: грудь, корпус, ноги и руки.',labels:['грудь','пресс','ноги','руки']},
+    arms:{name:'Руки / бицепс',sub:'руки и верх',summary:'Сегодня акцент на руки: бицепс, трицепс и плечевой пояс.',labels:['бицепс','трицепс','плечи']},
+    chest:{name:'Грудь',sub:'грудные + перед плеч',summary:'Нагрузка на грудные мышцы и немного на переднюю часть плеч.',labels:['грудь','перед плеч']},
+    abs:{name:'Пресс',sub:'корпус и живот',summary:'Работаем на пресс, кор и стабильность корпуса.',labels:['верх пресса','низ пресса','кор']},
+    legs:{name:'Ноги',sub:'бёдра и ягодицы',summary:'Фокус на ноги: передняя поверхность бедра, ягодицы и икры.',labels:['квадрицепс','ягодицы','икры']},
+    back:{name:'Спина',sub:'осанка и задняя цепь',summary:'Включаем спину, поясницу и мышцы для хорошей осанки.',labels:['верх спины','поясница','лопатки']}
+  };
+  let toastTimeout=null;
+  let timer=null;
+  let view=['today','progress','settings'].includes(location.hash.slice(1))?location.hash.slice(1):'today';
 
-  function dateKey(date = new Date()) {
-    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
-  }
-  function formatClock(seconds) {
-    const s = Math.max(0, Math.ceil(seconds));
-    return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
-  }
-  function dateFromKey(key) {
-    const [y,m,d] = key.split('-').map(Number);
-    return new Date(y,m-1,d,12);
-  }
-  function dayLabel(key) { return dateFromKey(key).toLocaleDateString('ru-RU',{day:'numeric',month:'short'}); }
-  function esc(value) { return String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-  function defaults() {
-    return {version:1, settings:{pushups:5,squats:8,plank:15},checkins:{},sessions:[],progress:{day:dateKey(),mode:'normal',manualRest:false,done:[],status:'open'}};
-  }
+  function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[m]));}
+  function dateKey(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+  function dayLabel(key){const d=new Date(key+'T12:00:00');return d.toLocaleDateString('ru-RU',{day:'numeric',month:'long'});}
+  function formatClock(sec){const m=Math.floor(sec/60);const s=Math.max(0,sec%60);return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;}
   function bounded(n,min,max,fallback){const v=Number(n);return Number.isFinite(v)?Math.min(max,Math.max(min,Math.round(v))):fallback;}
-  function loadState() {
-    const def = defaults();
-    try {
-      const saved = JSON.parse(localStorage.getItem(KEY));
-      if (!saved || typeof saved !== 'object') return def;
-      def.settings.pushups=bounded(saved.settings?.pushups,1,20,5);
-      def.settings.squats=bounded(saved.settings?.squats,1,25,8);
-      def.settings.plank=bounded(saved.settings?.plank,5,90,15);
-      if (saved.checkins && typeof saved.checkins === 'object' && !Array.isArray(saved.checkins)) {
-        for (const [key,v] of Object.entries(saved.checkins)) {
-          if (/^\d{4}-\d{2}-\d{2}$/.test(key) && v && typeof v === 'object') {
+
+  function defaults(){
+    return {
+      version:2,
+      settings:{level:'beginner',focus:'full'},
+      checkins:{},
+      sessions:[],
+      progress:{day:dateKey(),mode:'normal',manualRest:false,done:[],status:'open'}
+    };
+  }
+
+  function loadState(){
+    const def=defaults();
+    try{
+      const saved=JSON.parse(localStorage.getItem(KEY));
+      if(!saved || typeof saved!=='object') return def;
+      const oldSettings=saved.settings||{};
+      def.settings.level=LEVELS[oldSettings.level]?oldSettings.level:'beginner';
+      def.settings.focus=FOCUSES[oldSettings.focus]?oldSettings.focus:'full';
+      if(saved.checkins && typeof saved.checkins==='object' && !Array.isArray(saved.checkins)){
+        for(const [key,v] of Object.entries(saved.checkins)){
+          if(/^\d{4}-\d{2}-\d{2}$/.test(key) && v && typeof v==='object'){
             def.checkins[key]={mood:bounded(v.mood,1,5,3),fatigue:bounded(v.fatigue,0,4,1),note:String(v.note||'').slice(0,160)};
           }
         }
       }
-      if (Array.isArray(saved.sessions)) {
+      if(Array.isArray(saved.sessions)){
         def.sessions=saved.sessions.filter(s=>s&&typeof s.day==='string'&&Array.isArray(s.completed)).slice(-500).map(s=>({
-          id:String(s.id||'').slice(0,80),day:s.day,mode:['normal','light','rest'].includes(s.mode)?s.mode:'normal',
+          id:String(s.id||'').slice(0,90),
+          day:s.day,
+          mode:['normal','light','rest'].includes(s.mode)?s.mode:'normal',
+          focus:FOCUSES[s.focus]?s.focus:'full',
+          level:LEVELS[s.level]?s.level:'beginner',
           completed:s.completed.filter(t=>t&&typeof t.id==='string').map(t=>({id:t.id,count:bounded(t.count,0,999,0),name:String(t.name||'').slice(0,80)})),
-          possible:bounded(s.possible,0,10,3),endedAt:String(s.endedAt||''),mood:bounded(s.mood,1,5,3),fatigue:bounded(s.fatigue,0,4,1)
+          possible:bounded(s.possible,0,20,3),
+          endedAt:String(s.endedAt||''),
+          mood:bounded(s.mood,1,5,3),
+          fatigue:bounded(s.fatigue,0,4,1)
         }));
       }
-      if (saved.progress?.day===dateKey()) {
-        def.progress={day:dateKey(),mode:['normal','light','rest'].includes(saved.progress.mode)?saved.progress.mode:'normal',manualRest:!!saved.progress.manualRest,done:Array.isArray(saved.progress.done)?saved.progress.done.filter(x=>typeof x==='string').slice(0,10):[],status:saved.progress.status==='complete'?'complete':'open'};
+      if(saved.progress?.day===dateKey()){
+        def.progress={
+          day:dateKey(),
+          mode:['normal','light','rest'].includes(saved.progress.mode)?saved.progress.mode:'normal',
+          manualRest:!!saved.progress.manualRest,
+          done:Array.isArray(saved.progress.done)?saved.progress.done.filter(x=>typeof x==='string').slice(0,20):[],
+          status:saved.progress.status==='complete'?'complete':'open'
+        };
       }
       return def;
-    } catch(err){console.warn('Не удалось прочитать локальные данные',err);return def;}
+    }catch(err){console.warn('Не удалось прочитать локальные данные',err);return def;}
   }
-  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){toast('Не получилось сохранить данные: проверь память браузера');}}
+
+  let state=loadState();
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){toast('Не получилось сохранить данные: проверь память устройства');}}
   function todayCheckin(){return state.checkins[dateKey()]||null;}
-  function ensureToday(){
-    if(state.progress.day!==dateKey()){
-      stopTimer();state.progress={day:dateKey(),mode:'normal',manualRest:false,done:[],status:'open'};state.progress.mode=deriveMode();save();
-    }
-  }
-  function deriveMode(){
-    const c=todayCheckin();
-    if(state.progress?.manualRest || (c && c.fatigue>=3))return 'rest';
-    if(c && (c.fatigue>=2 || c.mood<=2))return 'light';
-    return 'normal';
-  }
+  function ensureToday(){if(state.progress.day!==dateKey()){stopTimer();state.progress={day:dateKey(),mode:'normal',manualRest:false,done:[],status:'open'};state.progress.mode=deriveMode();save();}}
+  function deriveMode(){const c=todayCheckin();if(state.progress?.manualRest || (c && c.fatigue>=3))return 'rest';if(c && (c.fatigue>=2 || c.mood<=2))return 'light';return 'normal';}
   function currentMode(){return state.progress.mode;}
-  function updateMode(){
-    if(state.progress.status!=='complete' && state.progress.done.length===0){
-      state.progress.mode=deriveMode();stopTimer();
-    }
+  function updateMode(){if(state.progress.status!=='complete' && state.progress.done.length===0){state.progress.mode=deriveMode();stopTimer();}}
+  function toast(message){toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toastEl.classList.remove('show'),2800);}
+
+  function scaleCount(base, mode, isDuration=false){
+    const factor=(LEVELS[state.settings.level]||LEVELS.beginner).factor;
+    const modeFactor=mode==='light'?0.68:1;
+    const raw=base*factor*modeFactor;
+    const n=isDuration?Math.round(raw/5)*5:Math.round(raw);
+    return Math.max(isDuration?10:2,n);
   }
+
+  function exercise(id,name,base,unit,icon,color,desc,muscles,how,tip,opts={}){
+    const mode=currentMode();
+    const count=opts.fixed?base:scaleCount(base,mode,!!opts.duration);
+    return {id,name,count,unit,icon,color,desc,muscles,how,tip,duration:opts.duration?count:null};
+  }
+
+  function mobilityByFocus(focus){
+    const map={
+      arms:{id:'arm-mobility',name:'Круги руками',base:25,unit:'сек',icon:'🔄',color:'purple',desc:'Мягко разомни плечи и локти.',muscles:'руки и плечи',how:'Медленно делай круги руками вперёд и назад.',tip:'Без резких махов.',duration:true},
+      chest:{id:'chest-open',name:'Раскрытие груди',base:25,unit:'сек',icon:'🫁',color:'orange',desc:'Открой грудной отдел и плечи.',muscles:'грудь',how:'Сцепи руки за спиной или упрись ладонями в стену и мягко раскрой грудь.',tip:'Тянись комфортно.',duration:true},
+      abs:{id:'core-breath',name:'Дыхание животом',base:30,unit:'сек',icon:'🌬️',color:'purple',desc:'Снимаем напряжение и включаем корпус.',muscles:'пресс и кор',how:'Ладонь на живот, спокойный вдох носом и длинный выдох.',tip:'Плечи расслабь.',duration:true},
+      legs:{id:'leg-shake',name:'Разгрузка ног',base:25,unit:'сек',icon:'🦵',color:'orange',desc:'Снимай зажимы после ходьбы и школы.',muscles:'ноги',how:'Потряси ногами и плавно потяни икры.',tip:'Дыши ровно.',duration:true},
+      back:{id:'cat-back',name:'Кошка-спина',base:25,unit:'сек',icon:'🐈',color:'orange',desc:'Мягкая подвижность для спины.',muscles:'спина',how:'Плавно округляй и прогибай спину без боли.',tip:'Не спеши.',duration:true}
+    };
+    return map[focus]||map.abs;
+  }
+
   function planFor(mode){
-    const s=state.settings;
-    if(mode==='rest')return [
-      {id:'breath',name:'Спокойное дыхание',count:30,unit:'сек',duration:30,icon:'🌿',color:'purple',desc:'Дыши спокойно, в удобном темпе.'},
-      {id:'water',name:'Пауза и вода',count:1,unit:'раз',icon:'💧',color:'',desc:'Попей воды и немного отдохни.'},
-      {id:'stretch',name:'Лёгкая разминка',count:20,unit:'сек',duration:20,icon:'🧘',color:'orange',desc:'Без боли и резких движений.'}
-    ];
-    if(mode==='light')return [
-      {id:'pushups',name:'Отжимания',count:Math.max(1,Math.ceil(s.pushups*.6)),unit:'раз',icon:'💪',color:'',desc:'Можно от стены или с колен.'},
-      {id:'squats',name:'Приседания',count:Math.max(2,Math.ceil(s.squats*.6)),unit:'раз',icon:'⚡',color:'purple',desc:'Не спеши, движения плавные.'},
-      {id:'stretch',name:'Потянуться',count:20,unit:'сек',duration:20,icon:'🧘',color:'orange',desc:'Мягко разомни плечи и спину.'}
-    ];
-    return [
-      {id:'pushups',name:'Отжимания',count:s.pushups,unit:'раз',icon:'💪',color:'',desc:'Можно от стены или с колен.'},
-      {id:'squats',name:'Приседания',count:s.squats,unit:'раз',icon:'⚡',color:'purple',desc:'Спокойно, не на скорость.'},
-      {id:'plank',name:'Планка',count:s.plank,unit:'сек',duration:s.plank,icon:'⏱',color:'orange',desc:'Держи удобное положение.'}
-    ];
+    const focus=state.settings.focus;
+    if(mode==='rest'){
+      const mob=mobilityByFocus(focus);
+      return [
+        exercise('breath','Спокойное дыхание',30,'сек','🌿','purple','Сначала успокой дыхание и темп.', 'восстановление', 'Сядь удобно и дыши медленно.', 'Не напрягайся.', {duration:true,fixed:true}),
+        exercise('water','Пауза и вода',1,'раз','💧','', 'Сделай перерыв и попей воды.', 'восстановление', 'Попей несколько глотков и немного походи.', 'Тело тоже любит отдых.', {fixed:true}),
+        exercise(mob.id,mob.name,mob.base,mob.unit,mob.icon,mob.color,mob.desc,mob.muscles,mob.how,mob.tip,{duration:mob.duration,fixed:false})
+      ];
+    }
+    const lib={
+      full:[
+        ()=>exercise('pushups','Отжимания',mode==='light'?4:5,'раз','💪','',mode==='light'?'Можно от стены или с колен.':'База на грудь, руки и корпус.','грудь · руки','Ладони чуть шире плеч, корпус прямой, опускайся плавно.','Шея длинная, не провисай.'),
+        ()=>exercise('squats','Приседания',mode==='light'?6:8,'раз','🦵','purple','Спокойные приседания для ног и ягодиц.','ноги · ягодицы','Стопы чуть шире плеч, таз назад, колени смотрят вперёд.','Спина ровная, пятки не отрывай.'),
+        ()=>exercise('plank','Планка',mode==='light'?15:20,'сек','⏱','orange','Статическое включение пресса и корпуса.','пресс · кор','Опора на локти или ладони, живот подтянут, тело одной линией.','Если тяжело — сократи время.',{duration:true})
+      ],
+      arms:[
+        ()=>exercise('close-pushups','Узкие отжимания',mode==='light'?3:4,'раз','💪','','Больше акцента на руки и трицепс.','руки · трицепс','Ладони ближе друг к другу, локти направляй назад.','Можно делать от опоры.'),
+        ()=>exercise('biceps-curl','Сгибание на бицепс',mode==='light'?6:8,'раз/рука','🏋️','purple','Сопротивление своей рукой или с лёгким рюкзаком.','бицепс','Одной рукой сгибай, другой чуть сопротивляйся движению.', 'Двигайся медленно.'),
+        ()=>exercise('chair-dips','Обратные отжимания',mode==='light'?4:6,'раз','🪑','orange','От стабильной опоры: кровати или стула.','трицепс · плечи','Кисти на опоре, таз рядом, сгибай локти неглубоко.', 'Опора должна быть устойчивой.')
+      ],
+      chest:[
+        ()=>exercise('wide-pushups','Широкие отжимания',mode==='light'?3:4,'раз','🏋️','', 'Главный акцент на грудные мышцы.','грудь','Руки чуть шире обычного, опускайся плавно и без рывка.', 'Можно от стены.'),
+        ()=>exercise('press-palm','Сведение ладоней',mode==='light'?15:20,'сек','🫷','purple','Изометрическая работа на грудь без прыжков.','грудь','Сильно дави ладонями друг в друга перед грудью.', 'Плечи опусти вниз.',{duration:true}),
+        ()=>exercise('wall-pushups','Отжимания от стены',mode==='light'?6:8,'раз','🧱','orange','Безопасный добивающий подход.','грудь · руки','Ладони на стене, тело ровное, согни руки и оттолкнись.', 'Не спеши.')
+      ],
+      abs:[
+        ()=>exercise('crunch','Скручивания',mode==='light'?8:10,'раз','🔥','', 'Классическое короткое движение на пресс.','верх пресса','Лёжа на спине, слегка подними плечи, не тяни шею.', 'Делай на выдохе.'),
+        ()=>exercise('dead-bug','Мёртвый жук',mode==='light'?6:8,'раз/сторона','🐞','purple','Учит держать корпус стабильно.','кор · низ пресса','Лёжа на спине, поочерёдно выпрямляй руку и противоположную ногу.', 'Поясница прижата к полу.'),
+        ()=>exercise('plank','Планка',mode==='light'?15:20,'сек','⏱','orange','Завершаем статикой на кор.','пресс · кор','Держи тело одной линией и дыши спокойно.', 'Лучше короче, но ровно.',{duration:true})
+      ],
+      legs:[
+        ()=>exercise('squats','Приседания',mode==='light'?6:8,'раз','🦵','', 'Базовое упражнение на ноги и ягодицы.','ноги · ягодицы','Таз уводи назад, колени не своди внутрь.', 'Пятки на полу.'),
+        ()=>exercise('lunges','Выпады назад',mode==='light'?4:6,'раз/нога','↘️','purple','Контролируемое движение на ноги и баланс.','ягодицы · бедро','Шаг назад, опускайся неглубоко, корпус держи ровно.', 'Можно держаться за опору.'),
+        ()=>exercise('wall-sit','Стульчик у стены',mode==='light'?15:20,'сек','🧱','orange','Статическая нагрузка на переднюю поверхность бедра.','квадрицепс','Спиной к стене, колени мягко согнуты, спина прижата.', 'Не опускайся слишком низко.',{duration:true})
+      ],
+      back:[
+        ()=>exercise('bird-dog','Птица-собака',mode==='light'?6:8,'раз/сторона','🐕','', 'Стабилизация спины и корпуса.','спина · кор','На четвереньках вытяни противоположные руку и ногу.', 'Таз держи ровно.'),
+        ()=>exercise('superman','Супермен',mode==='light'?6:8,'раз','🦸','purple','Лёгкое включение поясницы и спины.','спина · поясница','Лёжа на животе, чуть подними руки и ноги от пола.', 'Высота небольшая, без боли.'),
+        ()=>exercise('scapula','Сведение лопаток',mode==='light'?20:25,'сек','🫁','orange','Работа на осанку без тяжёлой нагрузки.','лопатки · верх спины','Стоя или сидя, мягко своди лопатки и удерживай.', 'Не поднимай плечи.',{duration:true})
+      ]
+    };
+    return (lib[focus]||lib.full).map(fn=>fn());
   }
+
+  function favoriteFocus(){
+    const map={};
+    state.sessions.forEach(s=>{map[s.focus]=(map[s.focus]||0)+1;});
+    const key=Object.keys(map).sort((a,b)=>map[b]-map[a])[0];
+    return key?FOCUSES[key].name:'—';
+  }
+
   const modes={
-    normal:{name:'Мини-победа',subtitle:'Небольшой комплекс на сегодня.',title:'Всего <em>5 минут?</em><br>Начни с малого.',desc:'Тебе не нужно быть идеальным. Один маленький шаг — уже успех.',label:'НЕБОЛЬШОЙ ШАГ — БОЛЬШАЯ ПОБЕДА'},
-    light:{name:'Лёгкий старт',subtitle:'Снизили нагрузку под твоё состояние.',title:'Можно <em>помедленнее.</em><br>Это нормально.',desc:'Ты сам выбираешь темп. Сегодня достаточно небольшого движения.',label:'ТВОЙ ТЕМП — ТВОИ ПРАВИЛА'},
-    rest:{name:'Бережный день',subtitle:'Сегодня восстановление важнее нагрузки.',title:'Отдых —<br><em>тоже прогресс.</em>',desc:'Не нужно делать упражнения через силу. Подыши, отдохни, попей воды.',label:'ОТДЫХАТЬ — ЭТО НОРМАЛЬНО'}
+    normal:{subtitle:'Мини-комплекс под твой уровень.',desc:'Выбери что качаем: руки, пресс, грудь, ноги или всё тело. ПУЛЬС подстроит мини-план.',label:'МАЛЕНЬКИЙ ШАГ — НОРМАЛЬНЫЙ ПРОГРЕСС'},
+    light:{subtitle:'Нагрузка снижена под твоё состояние.',desc:'Сегодня можно делать мягче. Даже облегчённый подход — это всё равно работа.',label:'ТВОЙ ТЕМП — ТВОИ ПРАВИЛА'},
+    rest:{subtitle:'Сначала восстановление и дыхание.',desc:'Если сил мало, отдых тоже считается. ПУЛЬС покажет мягкие действия вместо тяжёлых.',label:'ОТДЫХ — ЭТО ТОЖЕ ЧАСТЬ ПЛАНА'}
   };
-  function toast(message){toastEl.textContent=message;toastEl.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>toastEl.classList.remove('show'),2700);}
+
+  function bodyFigure(focus){
+    const active=(k)=>focus==='full' || focus===k;
+    const cls=(k,accent=false)=>`muscle ${active(k)?(accent?'accent':'active'):'dim'}`;
+    return `<svg class="muscle-svg" viewBox="0 0 180 250" aria-hidden="true">
+      <circle class="body-base" cx="90" cy="22" r="16"/>
+      <rect class="body-base" x="70" y="38" width="40" height="54" rx="18"/>
+      <rect class="body-base" x="59" y="88" width="62" height="53" rx="20"/>
+      <rect class="body-base" x="44" y="44" width="18" height="86" rx="10"/>
+      <rect class="body-base" x="118" y="44" width="18" height="86" rx="10"/>
+      <rect class="body-base" x="66" y="138" width="21" height="84" rx="10"/>
+      <rect class="body-base" x="93" y="138" width="21" height="84" rx="10"/>
+      <rect class="muscle ${active('arms')||active('chest')||active('back')? 'active':''}" x="46" y="54" width="14" height="56" rx="7"/>
+      <rect class="muscle ${active('arms')||active('chest')||active('back')? 'active':''}" x="120" y="54" width="14" height="56" rx="7"/>
+      <path class="${cls('chest',true)}" d="M72 53c6-7 20-7 25 0v20H72z"/>
+      <path class="${cls('chest',true)}" d="M108 53c-6-7-20-7-25 0v20h25z"/>
+      <rect class="${cls('back',true)}" x="74" y="48" width="32" height="24" rx="11"/>
+      <rect class="${cls('abs') }" x="77" y="93" width="12" height="12" rx="4"/>
+      <rect class="${cls('abs') }" x="92" y="93" width="12" height="12" rx="4"/>
+      <rect class="${cls('abs') }" x="77" y="108" width="12" height="12" rx="4"/>
+      <rect class="${cls('abs') }" x="92" y="108" width="12" height="12" rx="4"/>
+      <rect class="${cls('legs',true)}" x="67" y="143" width="18" height="42" rx="8"/>
+      <rect class="${cls('legs',true)}" x="95" y="143" width="18" height="42" rx="8"/>
+      <rect class="${cls('legs') }" x="67" y="188" width="18" height="32" rx="8"/>
+      <rect class="${cls('legs') }" x="95" y="188" width="18" height="32" rx="8"/>
+      <path class="body-outline" d="M70 38c4-6 10-10 20-10s16 4 20 10M60 52h60M59 88h62M66 138h48"/>
+    </svg>`;
+  }
+
+  function currentHeroTitle(){
+    const mode=currentMode();
+    const focusName=FOCUSES[state.settings.focus].name;
+    if(state.progress.status==='complete') return 'Сегодня <em>ты молодец.</em>';
+    if(mode==='rest') return 'Сначала <em>восстановись.</em>';
+    return `Сегодня качаем <em>${focusName.toLowerCase()}.</em>`;
+  }
+
+  function renderHero(){
+    const m=modes[currentMode()];
+    return `<section class="hero"><div class="eyebrow">✳ ${m.label}</div><h1>${currentHeroTitle()}</h1><p>${m.desc}</p><div class="hero-pills"><span class="pill">🎯 <strong>${FOCUSES[state.settings.focus].name}</strong></span><span class="pill">📊 <strong>${LEVELS[state.settings.level].name}</strong></span><span class="pill">⏱ <strong>${currentMode()==='normal'?'3–5':currentMode()==='light'?'2–4':'1–2'} мин</strong></span></div></section>`;
+  }
+
+  function renderCheckin(){
+    const c=todayCheckin();const mood=c?.mood??null;const fatigue=c?.fatigue??1;const note=c?.note??'';
+    const recommendation=(!c)?'Выбери настроение и усталость — ПУЛЬС подстроит план.':fatigue===4?'Очень сильная усталость — лучше отдыхать. Если так долго не проходит, расскажи взрослому.':fatigue>=3?'Сегодня можно выбрать только восстановление вместо нагрузки.':mood<=2?'Даже если настроение не очень, можно сделать небольшой и спокойный подход.':'Сделай столько, сколько комфортно. Остановись, если появилась боль.';
+    return `<section class="section" aria-labelledby="checkinTitle"><div class="section-heading"><div><h2 id="checkinTitle">Как ты сейчас?</h2><small>Сначала состояние, потом нагрузка</small></div><span aria-hidden="true">✦</span></div><div class="card"><div class="checkin-label">Психологическое состояние / настроение</div><div class="mood-row" role="group" aria-label="Выбери настроение">${MOODS.map((m,i)=>`<button type="button" class="mood ${mood===i+1?'selected':''}" data-mood="${i+1}" aria-pressed="${mood===i+1}"><span class="face" aria-hidden="true">${m.emoji}</span><small>${m.name}</small></button>`).join('')}</div><div class="inner-divider"></div><div class="range-head"><label for="fatigueRange">Усталость</label><span class="range-tag ${fatigue>=3?'warning':''}" id="fatigueText">${FATIGUE[fatigue]}</span></div><input type="range" id="fatigueRange" min="0" max="4" step="1" value="${fatigue}" aria-label="Уровень усталости" style="--range:${fatigue*25}%"><div class="range-ends"><span>Полон сил</span><span>Совсем устал</span></div><div class="recommendation ${fatigue>=3?'warn':''}"><span class="spark" aria-hidden="true">${fatigue>=3?'🧡':'✺'}</span><div><strong>${fatigue>=3?'Можно остановиться.':'Прислушивайся к себе.'}</strong><br>${recommendation}</div></div><label class="helper" for="checkinNote" style="display:block;margin-top:17px">Заметка для себя (необязательно)</label><textarea id="checkinNote" maxlength="160" placeholder="Например: устал после школы, но хочу качать пресс">${esc(note)}</textarea></div></section>`;
+  }
+
+  function renderSetup(){
+    const focus=FOCUSES[state.settings.focus];
+    const level=LEVELS[state.settings.level];
+    return `<section class="section" aria-labelledby="setupTitle"><div class="section-heading"><div><h2 id="setupTitle">Что качаем и на каком уровне?</h2><small>Выбирай цель на сегодня и нагрузку под себя</small></div><span aria-hidden="true">🎯</span></div><div class="card"><div class="setup-grid"><div class="setup-block"><div class="setup-head"><strong>Текущий уровень</strong><span class="muted" style="font-size:12px">Можно менять</span></div><div class="choice-grid">${Object.entries(LEVELS).map(([key,val])=>`<button type="button" class="choice-chip ${state.settings.level===key?'active':''}" data-level="${key}" aria-pressed="${state.settings.level===key}"><span>${val.name}</span><small>${val.short}</small></button>`).join('')}</div></div><div class="setup-block"><div class="setup-head"><strong>Зона тренировки</strong><span class="muted" style="font-size:12px">На сегодня</span></div><div class="focus-grid">${Object.entries(FOCUSES).map(([key,val])=>`<button type="button" class="focus-chip ${state.settings.focus===key?'active':''}" data-focus="${key}" aria-pressed="${state.settings.focus===key}"><strong>${val.name}</strong><small>${val.sub}</small></button>`).join('')}</div></div><div class="body-card"><div class="body-wrap">${bodyFigure(state.settings.focus)}</div><div class="body-copy"><h3>${focus.name}</h3><p>${focus.summary}</p><div class="body-tags">${focus.labels.map(x=>`<span>${x}</span>`).join('')}</div><div class="body-note">Подсветка условная: показывает, какие зоны больше включаются в сегодняшнем мини-плане. Уровень сейчас: <b>${level.name}</b>.</div></div></div><div class="legend-row"><span>💡 Если стало тяжело — выбери “Новичок” или высокий уровень усталости</span><span>🫶 Если болит — остановись</span></div></div></div></section>`;
+  }
+
+  function renderExercises(){
+    if(state.progress.status==='complete'){
+      const todaySessions=state.sessions.filter(s=>s.day===dateKey());
+      const last=todaySessions[todaySessions.length-1];
+      return `<section class="section" aria-labelledby="finishedTitle"><div class="card finished"><div class="finished-icon" aria-hidden="true">✓</div><h2 id="finishedTitle">На сегодня достаточно 💚</h2><p>${last?.completed.length?`Сделано ${last.completed.length} из ${last.possible} заданий. `:''}Ты уделил время ${FOCUSES[last?.focus||state.settings.focus].name.toLowerCase()} и позаботился о себе.</p>${todayCheckin()?.fatigue<3?'<button class="small-cta" data-action="restart" type="button">Начать ещё один мини-подход</button>':''}</div></section>`;
+    }
+    const p=state.progress;const tasks=planFor(currentMode());const amount=p.done.length;
+    return `<section class="section" aria-labelledby="planTitle"><div class="section-heading"><div><h2 id="planTitle">Твой план на сейчас</h2><small>${modes[currentMode()].subtitle}</small></div>${todayCheckin()?.fatigue>=3?'<span class="muted" style="font-size:12px">Бережный режим</span>':`<button type="button" class="btn-soft" data-action="toggle-rest">${p.manualRest?'Вернуть упражнения':'Хочу отдых'}</button>`}</div><div class="card"><div class="progress-top"><span class="progress-count">Выполнено</span><span class="progress-count">${amount} / ${tasks.length}</span></div><div class="bar" role="progressbar" aria-label="Выполнено упражнений" aria-valuenow="${amount}" aria-valuemin="0" aria-valuemax="${tasks.length}"><span style="width:${amount/tasks.length*100}%"></span></div><div class="exercises">${tasks.map(item=>{const done=p.done.includes(item.id);return `<div class="exercise ${done?'done':''}"><div class="exercise-icon ${item.color}" aria-hidden="true">${item.icon}</div><div class="exercise-text"><div class="exercise-name">${esc(item.name)}</div><div class="exercise-desc">${esc(item.desc)}</div><div class="exercise-muscle"><span>${esc(item.muscles)}</span></div><div class="exercise-amount">${item.count} ${item.unit}</div></div><button type="button" data-${done?'undo':'task'}="${item.id}" class="done-button ${done?'done-btn':''}" aria-label="${done?'Отменить выполнение':'Отметить выполнение'}: ${esc(item.name)}">${done?'✓ Готово':item.duration?'Таймер':'Сделал'}</button></div>${timer?.id===item.id && !done ? `<div class="timer-panel"><div><strong id="timerClock">${formatClock(timer.remaining)}</strong><br><span>Спокойный темп</span></div><button type="button" class="btn-timer" data-timer="${item.id}">${timer.running?'Пауза':'Продолжить'}</button></div>`:''}`;}).join('')}</div><button type="button" class="rest-toggle" data-action="finish-early">${amount?'Закончить на сегодня':'Пропустить без чувства вины'} →</button><div class="plan-footer"><small>Фокус: ${FOCUSES[state.settings.focus].name}. Уровень: ${LEVELS[state.settings.level].name}.</small><span aria-hidden="true">💚</span></div></div></section>`;
+  }
+
+  function renderGuides(){
+    const tasks=planFor(currentMode());
+    return `<section class="section" aria-labelledby="guideTitle"><div class="section-heading"><div><h2 id="guideTitle">Что качаем и как</h2><small>Коротко и понятно по каждому упражнению</small></div><span aria-hidden="true">🧠</span></div><div class="guide-list">${tasks.map((item,idx)=>`<div class="guide-card"><div class="guide-top"><strong>${idx+1}. ${esc(item.name)}</strong><span class="guide-badge">${esc(item.muscles)}</span></div><p><b>Как делать:</b> ${esc(item.how)}</p><p><b>Подсказка:</b> ${esc(item.tip)}</p></div>`).join('')}</div></section>`;
+  }
+
+  function renderToday(){return renderHero()+renderCheckin()+renderSetup()+renderExercises()+renderGuides()+`<div class="tipline"><b>✳</b> Данные хранятся только на этом устройстве.</div>`;}
+
+  function weekDays(){const arr=[];const now=new Date();for(let i=6;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i,12);arr.push({key:dateKey(d),name:d.toLocaleDateString('ru-RU',{weekday:'short'}),today:i===0});}return arr;}
+
+  function renderProgress(){
+    const sessions=state.sessions;const activeDays=new Set(sessions.map(s=>s.day)).size;const doneTasks=sessions.reduce((n,s)=>n+s.completed.length,0);
+    const days=weekDays();const counts=days.map(d=>sessions.filter(s=>s.day===d.key).length);const max=Math.max(1,...counts);const hist=sessions.slice(-8).reverse();
+    return `<div class="page-head"><div class="eyebrow">ТВОЯ ИСТОРИЯ</div><h1 style="margin-top:12px">Прогресс идёт<br><span style="color:var(--lime)">по твоему темпу.</span></h1><p>Теперь ПУЛЬС умеет считать не только мини-сессии, но и разные зоны тренировки.</p></div><div class="stats-grid"><div class="stat-card"><strong>${sessions.length}</strong><span>мини-сессий</span></div><div class="stat-card"><strong>${activeDays}</strong><span>активных дней</span></div><div class="stat-card"><strong>${doneTasks}</strong><span>выполненных упражнений</span></div></div><section class="section"><div class="section-heading"><div><h2>Последние 7 дней</h2><small>Занимался или выбирал отдых — всё считается</small></div></div><div class="card"><div class="week-grid">${days.map((d,i)=>`<div class="week-day ${d.today?'today':''}"><div class="week-column"><span class="${counts[i]?'active':''}" style="--height:${counts[i]?Math.round(counts[i]/max*100):7}%" title="${counts[i]} сессий"></span></div><span>${esc(d.name)}</span><span>${counts[i]?'●':'·'}</span></div>`).join('')}</div></div></section><section class="section"><div class="section-heading"><div><h2>Что ты чаще качаешь</h2><small>По последним сохранённым мини-сессиям</small></div></div><div class="card"><h3>${favoriteFocus()}</h3><p class="helper" style="margin-top:9px">Любимый фокус можно менять хоть каждый день: руки, пресс, грудь, ноги, спина или всё тело.</p></div></section><section class="section"><div class="section-heading"><div><h2>Дневник</h2><small>Твои последние сессии</small></div></div><div class="history">${hist.length?hist.map(s=>`<div class="history-item"><div><strong>${dayLabel(s.day)} · ${s.mode==='rest'?'Восстановление':s.mode==='light'?'Лёгкий старт':'Мини-тренировка'}</strong><small>${FOCUSES[s.focus||'full'].name} · ${LEVELS[s.level||'beginner'].name} · ${s.completed.length} из ${s.possible} · настроение ${MOODS[(s.mood||3)-1]?.emoji||'😐'}</small></div><span class="history-tag">${s.completed.length===0?'Отдых ✓':`${s.completed.length} ✓`}</span></div>`).join(''):`<div class="card empty">Тут появятся твои первые маленькие победы. Начни с одной зоны и одного упражнения 💚</div>`}</div></section><div class="insight-card"><div class="eyebrow">НАПОМИНАНИЕ</div><h2>Необязательно качать всё сразу.</h2><p>Сегодня можно выбрать бицепс или пресс, завтра — ноги. Главное, чтобы это было посильно и регулярно.</p></div>`;
+  }
+
+  function renderSettings(){
+    return `<div class="page-head"><div class="eyebrow">НАСТРОЙКИ</div><h1 style="margin-top:12px">Всё <span style="color:var(--lime)">под тебя.</span></h1><p>Здесь можно быстро посмотреть текущий уровень и цель, а ещё сохранить или стереть данные.</p></div><section class="section" style="margin-top:6px"><div class="section-heading"><div><h2>Мой профиль нагрузки</h2><small>Эти параметры используются в плане на сегодня</small></div></div><div class="card"><div class="helper"><b>Уровень:</b> ${LEVELS[state.settings.level].name}<br><b>Фокус:</b> ${FOCUSES[state.settings.focus].name}</div><div class="recommendation"><span class="spark">✺</span><div><strong>Совет:</strong><br>Если упражнения кажутся слишком тяжёлыми, выбери уровень “Новичок”. Если слишком легко — “Заряжен”.</div></div></div></section><section class="section"><div class="section-heading"><div><h2>Мои данные</h2><small>Личная информация остаётся локально</small></div></div><div class="card"><h3>Без аккаунта и интернета</h3><p class="helper">Настроение, усталость, выбранные зоны тренировки и история занятий сохраняются только на этом устройстве. Удаление данных приложения может стереть историю.</p><button type="button" class="action-btn" data-action="export">↗ Сохранить мою историю (JSON)</button><button type="button" class="action-btn danger" data-action="reset">× Очистить все данные</button></div></section><p class="credits">ПУЛЬС v1.1 · Мини-тренировки по зонам тела<br>Это не медицинская диагностика или программа лечения.</p>`;
+  }
+
+  function render(){
+    ensureToday();
+    document.getElementById('headerDate').textContent=new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
+    main.innerHTML=view==='progress'?renderProgress():view==='settings'?renderSettings():renderToday();
+    document.querySelectorAll('[data-view]').forEach(el=>{const active=el.dataset.view===view;el.classList.toggle('active',active);el.setAttribute('aria-current',active?'page':'false');});
+  }
+
+  function checkinPatch(patch){const key=dateKey();const prev=todayCheckin()||{mood:3,fatigue:1,note:''};state.checkins[key]={...prev,...patch};updateMode();save();render();}
   function stopTimer(){if(timer?.tickId)clearInterval(timer.tickId);timer=null;}
-  function startTimer(id){
-    const item=planFor(currentMode()).find(x=>x.id===id && x.duration);
-    if(!item || state.progress.done.includes(id))return;
-    if(timer && timer.id!==id)stopTimer();
-    if(!timer){timer={id,remaining:item.duration,running:false,tickId:null};}
-    if(timer.running){timer.remaining=Math.max(1,Math.ceil((timer.deadline-Date.now())/1000));clearInterval(timer.tickId);timer.tickId=null;timer.running=false;render();return;}
-    timer.running=true;timer.deadline=Date.now()+timer.remaining*1000;
-    timer.tickId=setInterval(()=>{
-      if(!timer || !timer.running)return;
-      timer.remaining=Math.max(0,Math.ceil((timer.deadline-Date.now())/1000));
-      const clock=document.getElementById('timerClock');
-      if(clock)clock.textContent=formatClock(timer.remaining);
-      if(timer.remaining<=0){const doneId=timer.id;stopTimer();finishTask(doneId);}
-    },175);
-    render();
-  }
-  function finishTask(id){
-    if(state.progress.status==='complete')return;
-    const all=planFor(currentMode());if(!all.some(t=>t.id===id))return;
-    if(timer?.id===id)stopTimer();
-    if(!state.progress.done.includes(id))state.progress.done.push(id);
-    if(state.progress.done.length>=all.length){completeSession(false);return;}
-    save();render();toast('Готово! Маленькая победа ✨');
-  }
+  function startTimer(id){const item=planFor(currentMode()).find(x=>x.id===id && x.duration);if(!item || state.progress.done.includes(id))return;if(timer && timer.id!==id)stopTimer();if(!timer){timer={id,remaining:item.duration,running:false,tickId:null,deadline:0};}if(timer.running){timer.remaining=Math.max(1,Math.ceil((timer.deadline-Date.now())/1000));clearInterval(timer.tickId);timer.tickId=null;timer.running=false;render();return;}timer.running=true;timer.deadline=Date.now()+timer.remaining*1000;timer.tickId=setInterval(()=>{if(!timer||!timer.running)return;timer.remaining=Math.max(0,Math.ceil((timer.deadline-Date.now())/1000));const clock=document.getElementById('timerClock');if(clock)clock.textContent=formatClock(timer.remaining);if(timer.remaining<=0){const doneId=timer.id;stopTimer();finishTask(doneId);}},175);render();}
+  function finishTask(id){if(state.progress.status==='complete')return;const all=planFor(currentMode());const item=all.find(t=>t.id===id);if(!item)return;if(timer?.id===id)stopTimer();if(!state.progress.done.includes(id))state.progress.done.push(id);if(state.progress.done.length>=all.length){completeSession(false);return;}save();render();toast('Готово! Маленькая победа ✨');}
   function undoTask(id){if(state.progress.status==='complete')return;state.progress.done=state.progress.done.filter(x=>x!==id);save();render();}
+
   function completeSession(early){
     if(state.progress.status==='complete')return;
     stopTimer();
     const tasks=planFor(currentMode());
     const completed=tasks.filter(t=>state.progress.done.includes(t.id)).map(t=>({id:t.id,name:t.name,count:t.count}));
     const c=todayCheckin();
-    const session={id:`${Date.now()}-${Math.random().toString(36).slice(2,6)}`,day:dateKey(),mode:currentMode(),completed,possible:tasks.length,endedAt:new Date().toISOString(),mood:c?.mood||3,fatigue:c?.fatigue||1};
-    state.sessions.push(session);state.sessions=state.sessions.slice(-500);state.progress.status='complete';save();render();
-    showModal(session,early);
+    const session={id:`${Date.now()}-${Math.random().toString(36).slice(2,6)}`,day:dateKey(),mode:currentMode(),focus:state.settings.focus,level:state.settings.level,completed,possible:tasks.length,endedAt:new Date().toISOString(),mood:c?.mood||3,fatigue:c?.fatigue||1};
+    state.sessions.push(session);state.sessions=state.sessions.slice(-500);state.progress.status='complete';save();render();showModal(session,early);
   }
+
   function showModal(session,early){
     const rest=session.mode==='rest' || session.completed.length===0;
-    overlay.innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><span class="celebrate" aria-hidden="true">${rest?'🌿':'🎉'}</span><h2 id="modalTitle">${rest?'Ты позаботился о себе':'Это победа!'}</h2><p>${rest?'Отдых и забота о себе важны. Сегодня достаточно.':early?'Ты сделал столько, сколько было комфортно. Это уже результат.':`Выполнено ${session.completed.length} маленьких задания. Всё начинается с первого шага!`}</p><button type="button" data-action="close-modal">Отлично!</button></div>`;
+    overlay.innerHTML=`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><span class="celebrate" aria-hidden="true">${rest?'🌿':'🎉'}</span><h2 id="modalTitle">${rest?'Ты позаботился о себе':'Это победа!'}</h2><p>${rest?'Отдых и восстановление тоже важны. Сегодня этого достаточно.':early?'Ты сделал столько, сколько было комфортно. Это уже результат.':`Выполнено ${session.completed.length} мини-заданий по фокусу “${FOCUSES[session.focus].name}”. Всё начинается с первого шага!`}</p><button type="button" data-action="close-modal">Отлично!</button></div>`;
     overlay.hidden=false;overlay.querySelector('button').focus();
   }
-  function renderHero(){
-    const m=modes[currentMode()];const isCompleted=state.progress.status==='complete';
-    const title=isCompleted?'Сегодня <em>ты молодец.</em>':currentMode()==='normal'?`Начни с <em>${state.settings.pushups} отжиманий.</em>`:m.title;
-    const desc=isCompleted?'Ты уже уделил время себе. Можно спокойно отдыхать.':m.desc;
-    return `<section class="hero"><div class="eyebrow">✳ ${m.label}</div><h1>${title}</h1><p>${desc}</p><div class="hero-pills"><span class="pill">${currentMode()==='rest'?'🌿 Бережный режим':currentMode()==='light'?'↘ Облегчённый':'✦ Мини-тренировка'}</span><span class="pill">⏱ <strong>${currentMode()==='normal'?'2–3':currentMode()==='light'?'1–2':'1–2'} мин</strong></span></div></section>`;
-  }
-  function renderCheckin(){
-    const c=todayCheckin();const mood=c?.mood??null;const fatigue=c?.fatigue??1;
-    const note=c?.note??'';
-    const recommendation=(!c)?'Выбери настроение и усталость — я подстрою мини-план.':fatigue===4?'Очень сильная усталость — лучше отдыхать. Если это необычно или долго не проходит, расскажи взрослому.':fatigue>=3?'Сегодня можно выбрать восстановление вместо нагрузки.':mood<=2?'Необязательно быть в хорошем настроении, чтобы сделать что-то для себя.':'Сделай столько, сколько комфортно. Остановись, если появилась боль.';
-    return `<section class="section" aria-labelledby="checkinTitle"><div class="section-heading"><div><h2 id="checkinTitle">Как ты сейчас?</h2><small>Без оценок и давления</small></div><span aria-hidden="true">✦</span></div><div class="card"><div class="checkin-label">Психологическое состояние / настроение</div><div class="mood-row" role="group" aria-label="Выбери настроение">${MOODS.map((m,i)=>`<button type="button" class="mood ${mood===i+1?'selected':''}" data-mood="${i+1}" aria-pressed="${mood===i+1}"><span class="face" aria-hidden="true">${m.emoji}</span><small>${m.name}</small></button>`).join('')}</div><div class="inner-divider"></div><div class="range-head"><label for="fatigueRange">Усталость</label><span class="range-tag ${fatigue>=3?'warning':''}" id="fatigueText">${FATIGUE[fatigue]}</span></div><input type="range" id="fatigueRange" min="0" max="4" step="1" value="${fatigue}" aria-label="Уровень усталости" style="--range:${fatigue*25}%"><div class="range-ends"><span>Полон сил</span><span>Совсем устал</span></div><div class="recommendation ${fatigue>=3?'warn':''}"><span class="spark" aria-hidden="true">${fatigue>=3?'🧡':'✺'}</span><div><strong>${fatigue>=3?'Можно остановиться.':'Прислушивайся к себе.'}</strong><br>${recommendation}</div></div><label class="helper" for="checkinNote" style="display:block;margin-top:17px">Заметка для себя (необязательно)</label><textarea id="checkinNote" maxlength="160" placeholder="Например: устал после школы, но хочу размяться">${esc(note)}</textarea></div></section>`;
-  }
-  function renderExercises(){
-    if(state.progress.status==='complete'){
-      const todaySessions=state.sessions.filter(s=>s.day===dateKey());
-      const last=todaySessions[todaySessions.length-1];
-      return `<section class="section" aria-labelledby="finishedTitle"><div class="card finished"><div class="finished-icon" aria-hidden="true">✓</div><h2 id="finishedTitle">На сегодня достаточно 💚</h2><p>${last?.completed.length?`Сделано ${last.completed.length} из ${last.possible} заданий. `:''}Ты можешь гордиться тем, что позаботился о себе.</p>${todayCheckin()?.fatigue<3?'<button class="small-cta" data-action="restart" type="button">Начать ещё один мини-подход</button>':''}</div></section>`;
-    }
-    const p=state.progress;const tasks=planFor(currentMode());const amount=p.done.length;
-    return `<section class="section" aria-labelledby="planTitle"><div class="section-heading"><div><h2 id="planTitle">Твой мини-план</h2><small>${modes[currentMode()].subtitle}</small></div>${todayCheckin()?.fatigue>=3?'<span class="muted" style="font-size:12px">Бережный режим</span>':`<button type="button" class="text-button" data-action="toggle-rest">${p.manualRest?'Вернуть план':'Хочу отдых'}</button>`}</div><div class="card"><div class="progress-top"><span class="progress-count">Выполнено</span><span class="progress-count">${amount} / ${tasks.length}</span></div><div class="bar" role="progressbar" aria-label="Выполнено упражнений" aria-valuenow="${amount}" aria-valuemin="0" aria-valuemax="${tasks.length}"><span style="width:${amount/tasks.length*100}%"></span></div><div class="exercises">${tasks.map(item=>{
-      const done=p.done.includes(item.id);
-      return `<div class="exercise ${done?'done':''}"><div class="exercise-icon ${item.color}" aria-hidden="true">${item.icon}</div><div class="exercise-text"><div class="exercise-name">${esc(item.name)}</div><div class="exercise-desc">${esc(item.desc)}</div><div class="exercise-amount">${item.count} ${item.unit}</div></div><button type="button" data-${done?'undo':'task'}="${item.id}" class="done-button ${done?'done-btn':''}" aria-label="${done?'Отменить выполнение':'Отметить выполнение'}: ${esc(item.name)}">${done?'✓ Готово':item.duration?'Таймер':'Сделал'}</button></div>${timer?.id===item.id && !done ? `<div class="timer-panel"><div><strong id="timerClock">${formatClock(timer.remaining)}</strong><br><span>Спокойный темп</span></div><button type="button" class="btn-timer" data-timer="${item.id}">${timer.running?'Пауза':'Продолжить'}</button></div>`:''}`;
-    }).join('')}</div><button type="button" class="rest-toggle" data-action="finish-early">${amount?'Закончить на сегодня':'Пропустить без чувства вины'} →</button><div class="plan-footer"><small>Если больно или совсем нет сил — остановись. Не нужно терпеть.</small><span aria-hidden="true">💚</span></div></div></section>`;
-  }
-  function renderToday(){return renderHero()+renderCheckin()+renderExercises()+`<div class="tipline"><b>✳</b> Данные хранятся только на этом устройстве.</div>`;}
-  function weekDays(){const arr=[];const now=new Date();for(let i=6;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()-i,12);arr.push({key:dateKey(d),name:d.toLocaleDateString('ru-RU',{weekday:'short'}),today:i===0});}return arr;}
-  function renderProgress(){
-    const sessions=state.sessions;const activeDays=new Set(sessions.map(s=>s.day)).size;
-    const pushups=sessions.reduce((n,s)=>n+s.completed.filter(t=>t.id==='pushups').reduce((z,t)=>z+(t.count||0),0),0);
-    const days=weekDays();const counts=days.map(d=>sessions.filter(s=>s.day===d.key).length);
-    const max=Math.max(1,...counts);
-    const hist=sessions.slice(-8).reverse();
-    return `<div class="page-head"><div class="eyebrow">ТВОЯ ИСТОРИЯ</div><h1 style="margin-top:12px">Каждый шаг<br><span style="color:var(--lime)">имеет значение.</span></h1><p>Без рекордов и соревнований — просто твой собственный путь.</p></div><div class="stats-grid"><div class="stat-card"><strong>${sessions.length}</strong><span>мини-сессий</span></div><div class="stat-card"><strong>${activeDays}</strong><span>дней заботы о себе</span></div><div class="stat-card"><strong>${pushups}</strong><span>отжиманий</span></div></div><section class="section"><div class="section-heading"><div><h2>Последние 7 дней</h2><small>Занимался или выбирал отдых — всё считается</small></div></div><div class="card"><div class="week-grid">${days.map((d,i)=>`<div class="week-day ${d.today?'today':''}"><div class="week-column"><span class="${counts[i]?'active':''}" style="--height:${counts[i]?Math.round(counts[i]/max*100):7}%" title="${counts[i]} сессий"></span></div><span>${esc(d.name)}</span><span>${counts[i]?'●':'·'}</span></div>`).join('')}</div></div></section><section class="section"><div class="section-heading"><div><h2>Дневник</h2><small>Твои последние сессии</small></div></div><div class="history">${hist.length?hist.map(s=>`<div class="history-item"><div><strong>${dayLabel(s.day)} · ${s.mode==='rest'?'Восстановление':s.mode==='light'?'Лёгкий старт':'Мини-тренировка'}</strong><small>${s.completed.length} из ${s.possible} заданий · настроение ${MOODS[(s.mood||3)-1]?.emoji||'😐'}</small></div><span class="history-tag">${s.completed.length===0?'Отдых ✓':`${s.completed.length} ✓`}</span></div>`).join(''):`<div class="card empty">Тут появятся твои первые маленькие победы. Начать можно с одного упражнения 💚</div>`}</div></section><div class="insight-card"><div class="eyebrow">НАПОМИНАНИЕ</div><h2>Прогресс не обязан быть ровным.</h2><p>Если вчера ты отдыхал, а сегодня сделал пару повторений — ты уже заботишься о себе.</p></div>`;
-  }
-  function settingSlider(name,label,min,max,unit){const val=state.settings[name];return `<div class="setting-row"><div class="setting-row-head"><label for="setting-${name}"><strong>${label}</strong></label><span id="value-${name}">${val} ${unit}</span></div><input type="range" data-setting="${name}" id="setting-${name}" min="${min}" max="${max}" value="${val}" style="--range:${(val-min)/(max-min)*100}%"><div class="range-ends"><span>${min}</span><span>${max}</span></div></div>`;}
-  function renderSettings(){
-    return `<div class="page-head"><div class="eyebrow">НАСТРОЙКИ</div><h1 style="margin-top:12px">Всё <span style="color:var(--lime)">под тебя.</span></h1><p>Любую цель можно уменьшить. Лучше немного, чем через силу.</p></div><section class="section" style="margin-top:6px"><div class="section-heading"><div><h2>Мой обычный план</h2><small>Для хорошего самочувствия</small></div></div><div class="card">${settingSlider('pushups','Отжимания',1,20,'раз')}${settingSlider('squats','Приседания',1,25,'раз')}${settingSlider('plank','Планка',5,90,'сек')}<div class="recommendation"><span class="spark">✺</span><div><strong>Если усталость высокая,</strong><br>ПУЛЬС автоматически предлагает отдых вместо нагрузки.</div></div></div></section><section class="section"><div class="section-heading"><div><h2>Мои данные</h2><small>Личная информация остаётся локально</small></div></div><div class="card"><h3>Без аккаунта и интернета</h3><p class="helper">Настроение, усталость и история занятий сохраняются только в памяти приложения на этом устройстве. Удаление данных приложения или очистка браузера может стереть историю.</p><button type="button" class="action-btn" data-action="export">↗ Сохранить мою историю (JSON)</button><button type="button" class="action-btn danger" data-action="reset">× Очистить все данные</button></div></section><p class="credits">ПУЛЬС v1.0 · Маленькие действия каждый день<br>Это не медицинская диагностика или программа лечения.</p>`;
-  }
-  function render(){
-    ensureToday();
-    document.getElementById('headerDate').textContent=new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'short'});
-    main.innerHTML=view==='progress'?renderProgress():view==='settings'?renderSettings():renderToday();
-    document.querySelectorAll('[data-view]').forEach(el=>{
-      const active=el.dataset.view===view;el.classList.toggle('active',active);if(el.tagName==='BUTTON')el.setAttribute('aria-current',active?'page':'false');
-    });
-  }
-  function checkinPatch(patch){
-    const key=dateKey();const prev=todayCheckin()||{mood:3,fatigue:1,note:''};
-    state.checkins[key]={...prev,...patch};
-    updateMode();save();render();
-  }
+
+  function exportData(){const payload=JSON.stringify({exportedAt:new Date().toISOString(),app:'ПУЛЬС 1.1',data:state},null,2);if(window.NativeBridge&&typeof window.NativeBridge.shareData==='function'){window.NativeBridge.shareData(payload);toast('Выбери приложение, чтобы сохранить данные');return;}const blob=new Blob([payload],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`pulse-history-${dateKey()}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);toast('История экспортирована');}
+  function resetData(){if(!confirm('Точно удалить всю историю, настройки и выбранные зоны тренировки? Отменить это действие нельзя.'))return;stopTimer();state=defaults();save();view='today';location.hash='today';render();toast('Все данные очищены');}
+
   function setRest(){
     if(state.progress.status==='complete')return;
     state.progress.manualRest=!state.progress.manualRest;
-    if(state.progress.done.length>0){
-      // Изменение режима сохраняет уже выполненные задания в текущей сессии.
-      toast('Сначала закончи текущий мини-план, чтобы сменить режим');
-      state.progress.manualRest=!state.progress.manualRest;return;
-    }
+    if(state.progress.done.length>0){toast('Сначала закончи текущий мини-план, чтобы сменить режим');state.progress.manualRest=!state.progress.manualRest;return;}
     updateMode();save();render();
   }
-  function exportData(){
-    const payload=JSON.stringify({exportedAt:new Date().toISOString(),app:'ПУЛЬС 1.0',data:state},null,2);
-    if(window.NativeBridge && typeof window.NativeBridge.shareData==='function'){
-      window.NativeBridge.shareData(payload);toast('Выбери приложение, чтобы сохранить данные');return;
-    }
-    const blob=new Blob([payload],{type:'application/json;charset=utf-8'});const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download=`pulse-history-${dateKey()}.json`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);
-    toast('История экспортирована');
+
+  function setLevel(level){
+    if(!LEVELS[level])return;
+    if(state.progress.status!=='complete' && state.progress.done.length>0){toast('Смени уровень после завершения текущего подхода');return;}
+    state.settings.level=level;save();render();toast(`Уровень: ${LEVELS[level].name}`);
   }
-  function resetData(){
-    if(!confirm('Точно удалить всю историю, настроение и настройки? Отменить это действие нельзя.'))return;
-    stopTimer();state=defaults();save();view='today';location.hash='today';render();toast('Все данные очищены');
+  function setFocus(focus){
+    if(!FOCUSES[focus])return;
+    if(state.progress.status!=='complete' && state.progress.done.length>0){toast('Смени зону после завершения текущего подхода');return;}
+    state.settings.focus=focus;save();render();toast(`Фокус: ${FOCUSES[focus].name}`);
   }
+
   document.addEventListener('click',e=>{
     const navigation=e.target.closest('[data-view]');
     if(navigation){e.preventDefault();view=navigation.dataset.view;location.hash=view;stopTimer();render();scrollTo({top:0,behavior:'smooth'});return;}
     const mood=e.target.closest('[data-mood]');if(mood){checkinPatch({mood:Number(mood.dataset.mood)});return;}
+    const level=e.target.closest('[data-level]');if(level){setLevel(level.dataset.level);return;}
+    const focus=e.target.closest('[data-focus]');if(focus){setFocus(focus.dataset.focus);return;}
     const task=e.target.closest('[data-task]');if(task){const t=planFor(currentMode()).find(t=>t.id===task.dataset.task);if(t?.duration){startTimer(t.id);}else{finishTask(t?.id);}return;}
     const undo=e.target.closest('[data-undo]');if(undo){undoTask(undo.dataset.undo);return;}
     const timerButton=e.target.closest('[data-timer]');if(timerButton){startTimer(timerButton.dataset.timer);return;}
@@ -273,38 +391,21 @@ button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity
       case 'close-modal':overlay.hidden=true;overlay.innerHTML='';break;
     }
   });
+
   document.addEventListener('input',e=>{
     const el=e.target;
     if(el.id==='fatigueRange'){
-      const val=bounded(el.value,0,4,1);document.getElementById('fatigueText').textContent=FATIGUE[val];
-      document.getElementById('fatigueText').classList.toggle('warning',val>=3);
-      el.style.setProperty('--range',`${val*25}%`);
+      const val=bounded(el.value,0,4,1);document.getElementById('fatigueText').textContent=FATIGUE[val];document.getElementById('fatigueText').classList.toggle('warning',val>=3);el.style.setProperty('--range',`${val*25}%`);
     }
-    if(el.dataset.setting){
-      const name=el.dataset.setting;state.settings[name]=Number(el.value);
-      document.getElementById(`value-${name}`).textContent=`${el.value} ${name==='plank'?'сек':'раз'}`;
-      el.style.setProperty('--range',`${(Number(el.value)-Number(el.min))/(Number(el.max)-Number(el.min))*100}%`);save();
-    }
-    if(el.id==='checkinNote'){
-      const key=dateKey();state.checkins[key]={...(todayCheckin()||{mood:3,fatigue:1}),note:el.value.slice(0,160)};save();
-    }
+    if(el.id==='checkinNote'){const key=dateKey();state.checkins[key]={...(todayCheckin()||{mood:3,fatigue:1}),note:el.value.slice(0,160)};save();}
   });
-  document.addEventListener('change',e=>{
-    const el=e.target;
-    if(el.id==='fatigueRange')checkinPatch({fatigue:bounded(el.value,0,4,1)});
-    if(el.dataset.setting){updateMode();save();render();}
-  });
+
+  document.addEventListener('change',e=>{const el=e.target;if(el.id==='fatigueRange')checkinPatch({fatigue:bounded(el.value,0,4,1)});});
   window.addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(['today','progress','settings'].includes(v)&&v!==view){view=v;stopTimer();render();}});
-  window.addEventListener('visibilitychange',()=>{
-    if(document.visibilityState==='visible'){
-      if(state.progress.day!==dateKey())render();
-      if(timer?.running && timer.deadline<=Date.now()){const id=timer.id;stopTimer();finishTask(id);}
-    }
-  });
+  window.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(state.progress.day!==dateKey())render();if(timer?.running&&timer.deadline<=Date.now()){const id=timer.id;stopTimer();finishTask(id);}}});
   if('serviceWorker' in navigator && /^https?:$/.test(location.protocol))navigator.serviceWorker.register('./sw.js').catch(()=>{});
   render();
 })();
-
-  </script>
+</script>
 </body>
 </html>
