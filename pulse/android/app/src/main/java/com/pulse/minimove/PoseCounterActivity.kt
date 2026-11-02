@@ -137,7 +137,7 @@ class PoseCounterActivity : ComponentActivity() {
         else requestPermissions(arrayOf(Manifest.permission.CAMERA),permissionCode)
     }
 
-    override fun onRequestPermissionsResult(requestCode:Int,permissions:Array<out String>,grantResults:IntArray){
+    override fun onRequestPermissionsResult(requestCode:Int,permissions:Array<String>,grantResults:IntArray){
         super.onRequestPermissionsResult(requestCode,permissions,grantResults)
         if(requestCode==permissionCode){
             if(grantResults.firstOrNull()==PackageManager.PERMISSION_GRANTED)startCamera()
@@ -207,7 +207,7 @@ class PoseCounterActivity : ComponentActivity() {
     }
 
     private fun confidence(pose:Pose, ids:IntArray):Float{
-        val landmarks=ids.mapNotNull(pose::getPoseLandmark)
+        val landmarks=ids.toList().mapNotNull { pose.getPoseLandmark(it) }
         if(landmarks.size!=ids.size)return 0f
         return landmarks.minOf{it.inFrameLikelihood}
     }
